@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+    }
+
+    .quiz-container {
+      width: 90%;
+      max-width: 500px;
+      margin: 100px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .choice-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      background: #0056b3;
+    }
+
+    .choice-btn.correct {
+      background-color: #28a745 !important;
+    }
+
+    .choice-btn.wrong {
+      background-color: #dc3545 !important;
+    }
+
+    #next-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz Sederhana</h1>
+    <div id="question">Pertanyaan akan muncul di sini</div>
+    <div id="choices"></div>
+    <button id="next-btn">Berikutnya</button>
+    <div id="score-container"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Apa ibu kota Indonesia?",
+        choices: ["Jakarta", "Bandung", "Surabaya", "Medan"],
+        answer: "Jakarta"
+      },
+      {
+        question: "Siapa presiden pertama Indonesia?",
+        choices: ["Jokowi", "Soekarno", "Soeharto", "Habibie"],
+        answer: "Soekarno"
+      },
+      {
+        question: "Apa hasil dari 2 + 2?",
+        choices: ["3", "4", "5", "6"],
+        answer: "4"
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const choicesEl = document.getElementById("choices");
+    const nextBtn = document.getElementById("next-btn");
+    const scoreContainer = document.getElementById("score-container");
+
+    function showQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      questionEl.textContent = currentQuestion.question;
+      choicesEl.innerHTML = "";
+      nextBtn.style.display = "none";
+
+      currentQuestion.choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.classList.add("choice-btn");
+        btn.addEventListener("click", () => selectAnswer(btn, choice));
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(selectedBtn, choice) {
+      const correctAnswer = questions[currentQuestionIndex].answer;
+      const allButtons = document.querySelectorAll(".choice-btn");
+
+      if (choice === correctAnswer) {
+        selectedBtn.classList.add("correct");
+        score++;
+      } else {
+        selectedBtn.classList.add("wrong");
+        allButtons.forEach(btn => {
+          if (btn.textContent === correctAnswer) {
+            btn.classList.add("correct");
+          }
+        });
+      }
+
+      allButtons.forEach(btn => btn.disabled = true);
+      nextBtn.style.display = "block";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    });
+
+    function showScore() {
+      questionEl.textContent = "Kuis selesai!";
+      choicesEl.innerHTML = "";
+      nextBtn.style.display = "none";
+      scoreContainer.textContent = `Skor Anda: ${score} dari ${questions.length}`;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
