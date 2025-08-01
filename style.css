@@ -175,4 +175,35 @@ footer {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
+#qr {
+    text-align: center;
+    margin-top: 40px;
+  }
+  #qr img {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .project-card {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
 
