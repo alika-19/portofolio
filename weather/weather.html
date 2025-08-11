@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather App - Alika</title>
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Weather App</h1>
+    <p class="lead">Cari cuaca berdasarkan nama kota (menggunakan Open-Meteo geocoding & weather API).</p>
+    <div class="card">
+      <div class="form-row">
+        <input id="cityInput" placeholder="Masukkan nama kota, mis. Jakarta" />
+        <button id="searchBtn">Cari</button>
+      </div>
+      <div id="result" class="result" aria-live="polite"></div>
+    </div>
+    <footer class="foot">Project: Weather App • Built with Open-Meteo APIs</footer>
+  </main>
+  <script src="weather.js"></script>
+</body>
+</html>

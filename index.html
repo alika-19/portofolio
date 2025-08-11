@@ -2,110 +2,133 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portofolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portofolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <nav aria-label="Primary navigation">
-                <div class="logo" tabindex="0">𝙼𝚢 𝙿𝚘𝚛𝚝𝚘𝚏𝚘𝚕𝚒𝚘 ⋆˙⟡</div>
-                <ul>
-                    <li><a href="#about">𝙰𝚋𝚘𝚞𝚝 𝙼𝚎</a></li>
-                    <li><a href="#skills">𝚂𝚔𝚒𝚕𝚕𝚜</a></li>
-                    <li><a href="#projects">𝙿𝚛𝚘𝚓𝚎𝚌𝚝𝚜</a></li>
-                    <li><a href="#contact">𝙲𝚘𝚗𝚝𝚊𝚌𝚝</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <div class="menu-toggle" id="menu-toggle"></div>
+        <ul>
+          <li><a href="#about">𝙰𝚋𝚘𝚞𝚝 𝙼𝚎</a></li>
+          <li><a href="#skills">𝚂𝚔𝚒𝚕𝚕𝚜</a></li>
+          <li><a href="#projects">𝙿𝚛𝚘𝚓𝚎𝚌𝚝𝚜</a></li>
+          <li><a href="#contact">𝙲𝚘𝚗𝚝𝚊𝚌𝚝</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" tabindex="0">
+    <!-- About Section -->
+    <section id="about" class="about-me" aria-label="About Me Section">
+      <h1>Hallo👋, Aku <strong>Alika Putri Salsabila</strong></h1>
+      <img src="alika.jpg.jpeg" alt="Foto Alika Putri Salsabila" class="profile-photo">
+      <p>
+        Selamat datang di situs web portofolio pribadi saya! Saya adalah seorang <strong>Murid di SMK PLUS
+          PELITA NUSANTARA</strong>
+        yang sedang membuat aplikasi web menggunakan <strong>HTML, CSS, JavaScript</strong>.
+      </p>
+      <p>Saya percaya teknologi adalah alat penting untuk membangun masa depan pendidikan yang lebih baik.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-label="Skills Section">
+      <h2>Skills</h2>
+      <div class="skills-list" role="list">
+        <span class="skill" role="listitem">HTML</span>
+        <span class="skill" role="listitem">CSS</span>
+        <span class="skill" role="listitem">PHP</span>
+        <span class="skill" role="listitem">MICROSOFT OFFICE</span>
+        <span class="skill" role="listitem">COREL DRAW</span>
+        <span class="skill" role="listitem">C++</span>
+        <span class="skill" role="listitem">FIGMA</span>
+        <span class="skill" role="listitem">JavaScript</span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" aria-label="Projects Section">
+      <h2>🚀 Projects</h2>
+      <div class="projects-list">
+
+        <!-- Project versi lokal -->
+        <article class="project-item" tabindex="0">
+          <h3>🎯 Project </h3>
+          <p>Salah satu project yang pernah saya buat. Dibangun menggunakan HTML, CSS, JavaScript.</p>
+          <a href="jamalika/jamalika.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <h3>📝 To-Do List App</h3>
+          <p>Aplikasi daftar tugas interaktif untuk menambah, menghapus, dan menandai tugas sebagai selesai.</p>
+          <a href="todolika/todo.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <h3>❓ Quiz Game</h3>
+          <p>Game sederhana dengan pertanyaan pilihan ganda dan sistem penilaian. Dibuat dengan JavaScript.</p>
+          <a href="quizalika/quizalika.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+        </article>
+
+        <!-- Project versi GitHub -->
+        <a href="weather/weather.html" class="project-item">
+          <h3>🌤️ Weather App</h3>
+          <p>Aplikasi cuaca sederhana.</p>
+        </a>
+
+        <a href="color/color.html" class="project-item">
+          <h3>🎨 Color Generator</h3>
+          <p>Generator warna acak...</p>
+        </a>
+
+        <a href="quizalika/quizalika.html" class="project-item">
+          <h3>❓ Quiz Sederhana</h3>
+          <p>Quiz sederhana yang hanya dibuat menggunakan HTML saja.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-label="Contact Section">
+      <h2> 📫 Contact Me</h2>
+      <form action="https://formsubmit.co/alikaputrisalsabila19@gmail.com" method="POST">
+        <label for="name">Nama Lengkap</label>
+        <input type="text" id="name" name="nama" placeholder="Nama Anda" aria-label="Nama Anda" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email Anda" aria-label="Email Anda" required>
+
+        <label for="message">Pesan</label>
+        <textarea id="message" name="pesan" placeholder="Tulis Pesan Anda" aria-label="Pesan Anda" required></textarea>
+
+        <!-- Tambahan Anti-spam & Redirect -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://websitekamu.com/terkirim.html">
+
+        <button type="submit" aria-label="Kirim Pesan">📨 Kirim Pesan</button>
+
+        <!-- Ikon Sosial Media -->
+        <div class="social-icons">
+          <a href="https://www.instagram.com/@alikkaa.__" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@alikaputrisalsabila19" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/6289649826872" target="_blank" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://github.com/alika-19" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
         </div>
-    </header>
 
-    <main class="container" tabindex="0">
-        <!-- About Section -->
-        <section id="about" class="about-me" aria-label="About Me Section">
-            <h1>Hallo Guys👋, Aku <strong>Alika Putri Salsabila</strong></h1>
-            <img src="alika.jpg.jpeg" alt="Foto Alika Putri Salsabila" class="profile-photo">
-            <p>
-                Selamat datang di situs web portofolio pribadi saya! Saya adalah seorang <strong>Murid di SMK PLUS
-                    PELITA NUSANTARA</strong>
-                yang sedang membuat aplikasi web menggunakan <strong>HTML, CSS, JavaScript</strong>.
-            </p>
-            <p>Saya percaya teknologi adalah alat penting untuk membangun masa depan pendidikan yang lebih baik.</p>
-        </section>
+        <footer>
+          &copy; 2025 Alika Putri Salsabila - SMK Plus Pelita Nusantara
+        </footer>
+      </form>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" aria-label="Skills Section">
-            <h2>Skills</h2>
-            <div class="skills-list" role="list">
-                <span class="skill" role="listitem">HTML</span>
-                <span class="skill" role="listitem">CSS</span>
-                <span class="skill" role="listitem">PHP</span>
-                <span class="skill" role="listitem">MICROSOFT OFFICE</span>
-                <span class="skill" role="listitem">COREL DRAW</span>
-                <span class="skill" role="listitem">C++</span>
-                <span class="skill" role="listitem">FIGMA</span>
-                <span class="skill" role="listitem">JavaScript</span>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" aria-label="Projects Section">
-            <h2>Projects</h2>
-            <div class="projects-list">
-                <article class="project-item" tabindex="0">
-                    <h3>🎯 Project </h3>
-                    <p>Salah satu project yang pernah saya buat. Dibangun menggunakan HTML, CSS, JavaScript.</p>
-                    <a href="jamalika/jamalika.html" class="project-link" target="_blank" rel="noopener">Lihat
-                        Project</a>
-                </article>
-
-                <article class="project-item" tabindex="0">
-                    <h3>📝 To-Do List App</h3>
-                    <p>Aplikasi daftar tugas interaktif untuk menambah, menghapus, dan menandai tugas sebagai selesai.
-                    </p>
-                    <a href="todolika/todo.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
-                </article>
-
-                <article class="project-item" tabindex="0">
-                    <h3>❓ Quiz Game</h3>
-                    <p>Game sederhana dengan pertanyaan pilihan ganda dan sistem penilaian. Dibuat dengan JavaScript.
-                    </p>
-                    <a href="quizalika/quizalika.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
-                </article>
-                
-
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" aria-label="Contact Section">
-            <h2> 📫 Contact Me</h2>
-            <form id="contact-form" novalidate>
-                <label for="name">Nama Lengkap</label>
-                <input type="text" id="name" name="name" placeholder="Nama Anda" aria-label="Nama Anda" required>
-                <div class="error" id="name-error"></div>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email Anda" aria-label="Email Anda" required>
-                <div class="error" id="email-error"></div>
-
-                <label for="message">Pesan</label>
-                <textarea id="message" name="message" placeholder="Tulis Pesan Anda" aria-label="Pesan Anda"
-                    required></textarea>
-                <div class="error" id="message-error"></div>
-
-                <button type="submit" aria-label="Kirim Pesan">📨 Kirim Pesan</button>
-                <p class="success-msg" id="success-message" aria-live="polite"></p>
-                <footer>
-                    &copy; 2025 Alika Putri Salsabila - SMK Plus Pelita Nusantara
-                </footer>
-            </form>
-        </section>
-    </main>
-    
+  </main>
 </body>
-
 </html>
