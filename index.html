@@ -28,30 +28,30 @@
   <main class="container" tabindex="0">
     <!-- About Section -->
     <section id="about" class="about-me" aria-label="About Me Section">
-      <h1>Hallo👋, Aku <strong>Alika Putri Salsabila</strong></h1>
-      <img src="alika.jpg.jpeg" alt="Foto Alika Putri Salsabila" class="profile-photo">
+      <h1>Hello👋, I'm <strong>Alika Putri Salsabila</strong></h1>
+      <img src="alika2.png" alt="Foto Alika Putri Salsabila" class="profile-photo">
       <p>
-        Selamat datang di situs web portofolio pribadi saya! Saya adalah seorang <strong>Murid di SMK PLUS
+        Welcome to my personal Portofolio website! i am a students at <strong> SMK PLUS
           PELITA NUSANTARA</strong>
-        yang sedang membuat aplikasi web menggunakan <strong>HTML, CSS, JavaScript</strong>.
-      </p>
-      <p>Saya percaya teknologi adalah alat penting untuk membangun masa depan pendidikan yang lebih baik.</p>
+        my major <strong>Software engineering</strong>.
+</p>
+      <p>This portofolio contains a collection of projects and works that i created from my learning process.</p>
+      <p>I believe that technology is not just a tool, but also a powerful bridge to build a brighter future in education. 🚀</p>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" aria-label="Skills Section">
-      <h2>Skills</h2>
-      <div class="skills-list" role="list">
-        <span class="skill" role="listitem">HTML</span>
-        <span class="skill" role="listitem">CSS</span>
-        <span class="skill" role="listitem">PHP</span>
-        <span class="skill" role="listitem">MICROSOFT OFFICE</span>
-        <span class="skill" role="listitem">COREL DRAW</span>
-        <span class="skill" role="listitem">C++</span>
-        <span class="skill" role="listitem">FIGMA</span>
-        <span class="skill" role="listitem">JavaScript</span>
-      </div>
-    </section>
+  <!-- Skills Section -->
+<section id="skills" aria-label="Skills Section">
+  <h2>✨ Skills</h2>
+  <ul class="skills-list">
+    <li class="skill">HTML</li>
+    <li class="skill">CSS</li>
+    <li class="skill">PHP</li>
+    <li class="skill">Microsoft Office</li>
+    <li class="skill">C++</li>
+    <li class="skill">UI/UX</li>
+  </ul>
+</section>
+
 
     <!-- Projects Section -->
     <section id="projects" aria-label="Projects Section">
@@ -60,38 +60,28 @@
 
         <!-- Project versi lokal -->
         <article class="project-item" tabindex="0">
-          <h3>🎯 Project </h3>
-          <p>Salah satu project yang pernah saya buat. Dibangun menggunakan HTML, CSS, JavaScript.</p>
-          <a href="jamalika/jamalika.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+          <h3>⏰ Digital clock </h3>
+          <p>One of the projects I have created, built using HTML, CSS, and JavaScript.</p>
+          <a href="jamalika/jamalika.html" class="project-link" target="_blank" rel="noopener">See Project</a>
         </article>
 
         <article class="project-item" tabindex="0">
           <h3>📝 To-Do List App</h3>
-          <p>Aplikasi daftar tugas interaktif untuk menambah, menghapus, dan menandai tugas sebagai selesai.</p>
-          <a href="todolika/todo.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+          <p>An interactive to-do list application to add, delete, and mark tasks as completed.</p>
+          <a href="todolika/todo.html" class="project-link" target="_blank" rel="noopener">See Project</a>
         </article>
 
         <article class="project-item" tabindex="0">
           <h3>❓ Quiz Game</h3>
-          <p>Game sederhana dengan pertanyaan pilihan ganda dan sistem penilaian. Dibuat dengan JavaScript.</p>
-          <a href="quizalika/quizalika.html" class="project-link" target="_blank" rel="noopener">Lihat Project</a>
+          <p>A simple game with multiple-choice questions and a scoring system. Built with JavaScript</p>
+          <a href="quizalika/quizalika.html" class="project-link" target="_blank" rel="noopener">See Project</a>
         </article>
 
-        <!-- Project versi GitHub -->
-        <a href="weather/weather.html" class="project-item">
+        <article class="project-item" tabindex="0">
           <h3>🌤️ Weather App</h3>
-          <p>Aplikasi cuaca sederhana.</p>
-        </a>
-
-        <a href="color/color.html" class="project-item">
-          <h3>🎨 Color Generator</h3>
-          <p>Generator warna acak...</p>
-        </a>
-
-        <a href="quizalika/quizalika.html" class="project-item">
-          <h3>❓ Quiz Sederhana</h3>
-          <p>Quiz sederhana yang hanya dibuat menggunakan HTML saja.</p>
-        </a>
+          <p>A simple weather app that displays current conditions, built with HTML, CSS, and JavaScript.</p>
+          <a href="quizalika/quizalika.html" class="project-link" target="_blank" rel="noopener">See Project</a>
+        </article>
 
       </div>
     </section>
@@ -99,25 +89,21 @@
     <!-- Contact Section -->
     <section id="contact" aria-label="Contact Section">
       <h2> 📫 Contact Me</h2>
-      <form action="https://formsubmit.co/alikaputrisalsabila19@gmail.com" method="POST">
-        <label for="name">Nama Lengkap</label>
-        <input type="text" id="name" name="nama" placeholder="Nama Anda" aria-label="Nama Anda" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email Anda" aria-label="Email Anda" required>
-
-        <label for="message">Pesan</label>
-        <textarea id="message" name="pesan" placeholder="Tulis Pesan Anda" aria-label="Pesan Anda" required></textarea>
-
-        <!-- Tambahan Anti-spam & Redirect -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://websitekamu.com/terkirim.html">
-
-        <button type="submit" aria-label="Kirim Pesan">📨 Kirim Pesan</button>
-
+      <form action="https://formsubmit.co/alikaputrisalsabila19@gmail.com method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">📨 Send message</button>
+      
+        <!-- Hidden Settings -->
+        <input type="hidden" name="_next" value="index.html">
+        <input type="hidden" name="_subject" value="Pesan Baru dari Portfolio">
+        <input type="hidden" name="_captcha" value="http://localhost/portofolio/index.html>
+      </form>
+      
         <!-- Ikon Sosial Media -->
         <div class="social-icons">
-          <a href="https://www.instagram.com/@alikkaa.__" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/alikkaa.__?igsh=MXJlZTkxNmNidGwyNA==" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.tiktok.com/@alikaputrisalsabila19" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
           <a href="https://wa.me/6289649826872" target="_blank" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
           <a href="https://github.com/alika-19" target="_blank" class="icon github"><i class="fab fa-github"></i></a>

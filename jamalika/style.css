@@ -64,3 +64,26 @@ body {
   font-size: 1.5rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+/* Animasi masuk */
+.container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glow efek jam */
+.time-box {
+  position: relative;
+}
+.time-box span {
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+/* AM/PM glow */
+.ampm {
+  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border: 2px solid rgba(0,0,0,0.1);
+}

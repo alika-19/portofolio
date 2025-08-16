@@ -1,26 +1,44 @@
-function updateClock() {
-  const now = new Date();
+// script.js
+(function () {
+  function pad(n) { return n < 10 ? "0" + n : String(n); }
 
-  let hours = now.getHours();
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-  const ampm = hours >= 12 ? 'PM' : 'AM';
+  function updateClock() {
+    const now = new Date();
 
-  hours = hours % 12 || 12;
-  const strHours = hours.toString().padStart(2, '0');
+    // Waktu
+    let h24 = now.getHours();
+    const ampm = h24 >= 12 ? "PM" : "AM";
+    let h12 = h24 % 12;
+    if (h12 === 0) h12 = 12;
 
-  const day = now.getDate();
-  const month = now.toLocaleString('default', { month: 'long' });
-  const year = now.getFullYear();
-  const weekday = now.toLocaleString('default', { weekday: 'long' });
+    // Tulis ke DOM (kalau elemennya ada)
+    const elH = document.getElementById("hours");
+    const elM = document.getElementById("minutes");
+    const elS = document.getElementById("seconds");
+    const elA = document.getElementById("ampm");
+    const elD = document.getElementById("date");
 
-  document.getElementById('hours').textContent = strHours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
-  document.getElementById('ampm').textContent = ampm;
+    if (elH) elH.textContent = pad(h12);
+    if (elM) elM.textContent = pad(now.getMinutes());
+    if (elS) elS.textContent = pad(now.getSeconds());
+    if (elA) elA.textContent = ampm;
 
-  document.getElementById('date').textContent = `${weekday}, ${day} ${month} ${year}`;
-}
+    if (elD) {
+      const days = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+      const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+      elD.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+    }
+  }
 
-setInterval(updateClock, 1000);
-updateClock();
+  // Pastikan mulai setelah DOM siap, lalu update tiap detik
+  function start() {
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
