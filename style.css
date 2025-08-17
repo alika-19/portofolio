@@ -129,6 +129,7 @@ form {
   flex-direction: column;
   gap: 1rem;
 }
+
 input, textarea {
   background-color: #fdfdfd;
   color: #333;
@@ -160,7 +161,6 @@ button:hover {
   color: #06d6a0;
 }
 
-/* Footer */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -239,4 +239,44 @@ footer {
 .social-icons .icon:hover {
   background-color: #ff69b4;
   color: white;
+}
+
+/* Skills */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-btn {
+  background-color: #ffb6c1; /* pink pastel */
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skill-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.skill-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #ffc0cb;
+}
+
+/* Responsive kecil layar */
+@media (max-width: 500px) {
+  .skills-container {
+    flex-direction: column;
+  }
+
+  .skill-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
