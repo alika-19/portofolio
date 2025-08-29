@@ -172,9 +172,9 @@ footer {
 .profile-photo {
   display: block;
   margin: 20px auto;
-  width: 250px;             
-  height: 250px;             
-  object-fit: cover;      
+  width: 350px;        /* lebar lebih besar */
+  height: 220px;       /* tinggi lebih kecil */
+  object-fit: cover;   /* biar foto tidak gepeng */
   border-radius: 16px;
   border: 4px double #6c63ff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
