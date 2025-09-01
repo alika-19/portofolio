@@ -1,42 +1,80 @@
+document.addEventListener("DOMContentLoaded", function() {
 
-(function () {
-  function pad(n) { return n < 10 ? "0" + n : String(n); }
+  // ===== Setup suara =====
+  let soundEnabled = false; // default OFF
+  let tickSound = new Audio('tick.wav'); // global
+  tickSound.volume = 0.5;
 
-  function updateClock() {
+  // ===== Fungsi pad 2 digit =====
+  function pad(n){ return n < 10 ? "0"+n : n; }
+
+  // ===== Jam Digital dengan efek pulse dan suara detik =====
+  function updateClock(){
     const now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+    const clockEl = document.getElementById("digitalClock");
+    clockEl.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
 
-    let h24 = now.getHours();
-    const ampm = h24 >= 12 ? "PM" : "AM";
-    let h12 = h24 % 12;
-    if (h12 === 0) h12 = 12;
+    // Pulse animasi
+    clockEl.classList.remove("pulse");
+    void clockEl.offsetWidth;
+    clockEl.classList.add("pulse");
 
-    const elH = document.getElementById("hours");
-    const elM = document.getElementById("minutes");
-    const elS = document.getElementById("seconds");
-    const elA = document.getElementById("ampm");
-    const elD = document.getElementById("date");
-
-    if (elH) elH.textContent = pad(h12);
-    if (elM) elM.textContent = pad(now.getMinutes());
-    if (elS) elS.textContent = pad(now.getSeconds());
-    if (elA) elA.textContent = ampm;
-
-    if (elD) {
-      const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-      const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-      elD.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+    // Putar suara detik hanya kalau ON
+    if(soundEnabled){
+      tickSound.currentTime = 0;
+      tickSound.play().catch(()=>{});
+    } else {
+      // kalau OFF → langsung berhentiin suara
+      tickSound.pause();
+      tickSound.currentTime = 0;
     }
   }
 
+  setInterval(updateClock, 1000);
+  updateClock();
 
-  function start() {
-    updateClock();
-    setInterval(updateClock, 1000);
+  // ===== Stopwatch =====
+  let swH=0, swM=0, swS=0, swInterval=null;
+
+  function updateStopwatch(){
+    swS++;
+    if(swS===60){ swS=0; swM++; }
+    if(swM===60){ swM=0; swH++; }
+    document.getElementById("stopwatch").textContent = `${pad(swH)}:${pad(swM)}:${pad(swS)}`;
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", start);
-  } else {
-    start();
-  }
-})();
+  document.getElementById("startStop").addEventListener("click", ()=>{
+    if(!swInterval){
+      swInterval = setInterval(updateStopwatch, 1000);
+    }
+  });
+
+  document.getElementById("pauseStop").addEventListener("click", ()=>{
+    clearInterval(swInterval);
+    swInterval = null;
+  });
+
+  document.getElementById("resetStop").addEventListener("click", ()=>{
+    clearInterval(swInterval);
+    swInterval = null;
+    swH=swM=swS=0;
+    document.getElementById("stopwatch").textContent = "00:00:00";
+  });
+
+  // ===== Tombol ON/OFF Suara =====
+  const toggleBtn = document.getElementById("toggleSound");
+  toggleBtn.addEventListener("click", ()=>{
+    soundEnabled = !soundEnabled;
+    toggleBtn.textContent = soundEnabled ? "🔊 Suara: ON" : "🔇 Suara: OFF";
+
+    // kalau OFF → stop audio langsung
+    if(!soundEnabled){
+      tickSound.pause();
+      tickSound.currentTime = 0;
+    }
+  });
+
+});
